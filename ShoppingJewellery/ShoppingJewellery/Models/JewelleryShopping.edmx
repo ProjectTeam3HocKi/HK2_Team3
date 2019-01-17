@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JewelleryShopping_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminLoginMst">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatMst">
+          <Key>
+            <PropertyRef Name="Cat_ID" />
+          </Key>
+          <Property Name="Cat_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cat_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DisplayCommonPro">
+          <Key>
+            <PropertyRef Name="Name_Pro" />
+          </Key>
+          <Property Name="Name_Pro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Img" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prod_ID" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'JewelleryShopping_db.dbo.Image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Style_Colde" />
+            <PropertyRef Name="image" />
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="Style_Colde" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="No" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JewelTypeMst">
+          <Key>
+            <PropertyRef Name="JewelTypeMst" />
+          </Key>
+          <Property Name="JewelTypeMst" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Jewellery_Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Prod" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProdMst">
+          <Key>
+            <PropertyRef Name="Prod_ID" />
+          </Key>
+          <Property Name="Prod_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Prod_Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cat_ID" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRegMst">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="userFname" Type="text" Nullable="false" />
+          <Property Name="userLname" Type="text" Nullable="false" />
+          <Property Name="mobNo" Type="text" Nullable="false" />
+          <Property Name="emailID" Type="text" Nullable="false" />
+          <Property Name="dob" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cdate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'JewelleryShopping_db.dbo.GoldView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GoldView">
+          <Key>
+            <PropertyRef Name="No" />
+            <PropertyRef Name="Style_code" />
+            <PropertyRef Name="GoldType_ID" />
+            <PropertyRef Name="Gold_Rate" />
+            <PropertyRef Name="Gold_Wt" />
+            <PropertyRef Name="Wstg_Per" />
+            <PropertyRef Name="Wstq" />
+            <PropertyRef Name="Total_weight" />
+          </Key>
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="Style_code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GoldType_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Gold_Crt" Type="varchar" MaxLength="50" />
+          <Property Name="Gold_Rate" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Gold_Wt" Type="numeric" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Wstg_Per" Type="numeric" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Wstq" Type="numeric" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Total_weight" Type="numeric" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="PriceOnGram" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Total_Amount" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'JewelleryShopping_db.dbo.ViewDisplayItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewDisplayItem">
+          <Key>
+            <PropertyRef Name="Style_Code" />
+            <PropertyRef Name="Img" />
+            <PropertyRef Name="Tot_Gross_Wt" />
+            <PropertyRef Name="Prod_ID" />
+            <PropertyRef Name="Brand_ID" />
+            <PropertyRef Name="Cat_ID" />
+            <PropertyRef Name="JewelleryType_ID" />
+          </Key>
+          <Property Name="Style_Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Img" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Total_weight" Type="numeric" Precision="10" Scale="3" />
+          <Property Name="image" Type="varchar" MaxLength="50" />
+          <Property Name="Tot_Gross_Wt" Type="numeric" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="GoldType_ID" Type="nchar" MaxLength="10" />
+          <Property Name="Gold_Crt" Type="varchar" MaxLength="50" />
+          <Property Name="Prod_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Prod_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Brand_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cat_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cat_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Jewellery_Type" Type="varchar" MaxLength="50" />
+          <Property Name="JewelleryType_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Brand_Type" Type="varchar" MaxLength="50" />
+          <Property Name="total_brand" Type="numeric" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'JewelleryShopping_db.dbo.ViewFullItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewFullItem">
+          <Key>
+            <PropertyRef Name="Style_Code" />
+            <PropertyRef Name="Img" />
+            <PropertyRef Name="Pairs" />
+            <PropertyRef Name="Cat_ID" />
+            <PropertyRef Name="Prod_ID" />
+            <PropertyRef Name="JewelleryType_ID" />
+            <PropertyRef Name="Brand_ID" />
+            <PropertyRef Name="Certify_ID" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Prod_Quality" />
+            <PropertyRef Name="Net_Gold" />
+            <PropertyRef Name="Tot_Gross_Wt" />
+            <PropertyRef Name="Stone_Making" />
+            <PropertyRef Name="Gold_Making" />
+            <PropertyRef Name="Other_Making" />
+            <PropertyRef Name="Tot_Making" />
+            <PropertyRef Name="size" />
+            <PropertyRef Name="MRP" />
+          </Key>
+          <Property Name="Style_Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Img" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pairs" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="Cat_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Prod_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="JewelleryType_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Brand_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Certify_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Quantity" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Prod_Quality" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Net_Gold" Type="numeric" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Tot_Gross_Wt" Type="numeric" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Stone_Making" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Gold_Making" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Other_Making" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Tot_Making" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="size" Type="int" Nullable="false" />
+          <Property Name="MRP" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="No_Image" Type="int" />
+          <Property Name="image" Type="varchar" MaxLength="50" />
+          <Property Name="No_Gold" Type="int" />
+          <Property Name="GoldType_ID" Type="nchar" MaxLength="10" />
+          <Property Name="Gold_Rate" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Gold_Wt" Type="numeric" Precision="10" Scale="3" />
+          <Property Name="Wstg_Per" Type="numeric" Precision="10" Scale="3" />
+          <Property Name="Wstq" Type="numeric" Precision="10" Scale="3" />
+          <Property Name="Total_weight" Type="numeric" Precision="10" Scale="3" />
+          <Property Name="No_Diamond" Type="int" />
+          <Property Name="DimQlty_ID" Type="nchar" MaxLength="10" />
+          <Property Name="Dim_Crt" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_Pcs" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_Gm" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_Size" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_Rate" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_Amt" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="DimSubType_ID" Type="nchar" MaxLength="10" />
+          <Property Name="Dim_CrtSub" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_PcsSub" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_GmSub" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_SizeSub" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_RateSub" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Dim_AmtSub" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Total_AmtAll" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="No_Stone" Type="int" />
+          <Property Name="StoneQlty_ID" Type="nchar" MaxLength="10" />
+          <Property Name="Stone_Gm" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Stone_Pcs" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Stone_Crt" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Stone_Rate" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Stone_Wt" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Stone_Amt" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="total_brand" Type="numeric" Precision="38" Scale="2" />
+        </EntityType>
+        <Association Name="FK_DisplayCommonPro_ProdMst">
+          <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="1" />
+          <End Role="DisplayCommonPro" Type="Self.DisplayCommonPro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdMst">
+              <PropertyRef Name="Prod_ID" />
+            </Principal>
+            <Dependent Role="DisplayCommonPro">
+              <PropertyRef Name="Prod_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JewelTypeMst_ProdMst">
+          <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="1" />
+          <End Role="JewelTypeMst" Type="Self.JewelTypeMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdMst">
+              <PropertyRef Name="Prod_ID" />
+            </Principal>
+            <Dependent Role="JewelTypeMst">
+              <PropertyRef Name="ID_Prod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdMst_CatMst">
+          <End Role="CatMst" Type="Self.CatMst" Multiplicity="1" />
+          <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMst">
+              <PropertyRef Name="Cat_ID" />
+            </Principal>
+            <Dependent Role="ProdMst">
+              <PropertyRef Name="Cat_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JewelleryShopping_dbModelStoreContainer">
+          <EntitySet Name="AdminLoginMst" EntityType="Self.AdminLoginMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatMst" EntityType="Self.CatMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisplayCommonPro" EntityType="Self.DisplayCommonPro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JewelTypeMst" EntityType="Self.JewelTypeMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdMst" EntityType="Self.ProdMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRegMst" EntityType="Self.UserRegMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Image].[Style_Colde] AS [Style_Colde], 
+    [Image].[image] AS [image], 
+    [Image].[No] AS [No]
+    FROM [dbo].[Image] AS [Image]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GoldView" EntityType="Self.GoldView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GoldView].[No] AS [No], 
+    [GoldView].[Style_code] AS [Style_code], 
+    [GoldView].[GoldType_ID] AS [GoldType_ID], 
+    [GoldView].[Gold_Crt] AS [Gold_Crt], 
+    [GoldView].[Gold_Rate] AS [Gold_Rate], 
+    [GoldView].[Gold_Wt] AS [Gold_Wt], 
+    [GoldView].[Wstg_Per] AS [Wstg_Per], 
+    [GoldView].[Wstq] AS [Wstq], 
+    [GoldView].[Total_weight] AS [Total_weight], 
+    [GoldView].[PriceOnGram] AS [PriceOnGram], 
+    [GoldView].[Total_Amount] AS [Total_Amount]
+    FROM [dbo].[GoldView] AS [GoldView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewDisplayItem" EntityType="Self.ViewDisplayItem" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewDisplayItem].[Style_Code] AS [Style_Code], 
+    [ViewDisplayItem].[Img] AS [Img], 
+    [ViewDisplayItem].[Total_weight] AS [Total_weight], 
+    [ViewDisplayItem].[image] AS [image], 
+    [ViewDisplayItem].[Tot_Gross_Wt] AS [Tot_Gross_Wt], 
+    [ViewDisplayItem].[GoldType_ID] AS [GoldType_ID], 
+    [ViewDisplayItem].[Gold_Crt] AS [Gold_Crt], 
+    [ViewDisplayItem].[Prod_ID] AS [Prod_ID], 
+    [ViewDisplayItem].[Prod_Type] AS [Prod_Type], 
+    [ViewDisplayItem].[Brand_ID] AS [Brand_ID], 
+    [ViewDisplayItem].[Cat_ID] AS [Cat_ID], 
+    [ViewDisplayItem].[Cat_Name] AS [Cat_Name], 
+    [ViewDisplayItem].[Jewellery_Type] AS [Jewellery_Type], 
+    [ViewDisplayItem].[JewelleryType_ID] AS [JewelleryType_ID], 
+    [ViewDisplayItem].[Brand_Type] AS [Brand_Type], 
+    [ViewDisplayItem].[total_brand] AS [total_brand]
+    FROM [dbo].[ViewDisplayItem] AS [ViewDisplayItem]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewFullItem" EntityType="Self.ViewFullItem" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewFullItem].[Style_Code] AS [Style_Code], 
+    [ViewFullItem].[Img] AS [Img], 
+    [ViewFullItem].[Pairs] AS [Pairs], 
+    [ViewFullItem].[Cat_ID] AS [Cat_ID], 
+    [ViewFullItem].[Prod_ID] AS [Prod_ID], 
+    [ViewFullItem].[JewelleryType_ID] AS [JewelleryType_ID], 
+    [ViewFullItem].[Brand_ID] AS [Brand_ID], 
+    [ViewFullItem].[Certify_ID] AS [Certify_ID], 
+    [ViewFullItem].[Quantity] AS [Quantity], 
+    [ViewFullItem].[Prod_Quality] AS [Prod_Quality], 
+    [ViewFullItem].[Net_Gold] AS [Net_Gold], 
+    [ViewFullItem].[Tot_Gross_Wt] AS [Tot_Gross_Wt], 
+    [ViewFullItem].[Stone_Making] AS [Stone_Making], 
+    [ViewFullItem].[Gold_Making] AS [Gold_Making], 
+    [ViewFullItem].[Other_Making] AS [Other_Making], 
+    [ViewFullItem].[Tot_Making] AS [Tot_Making], 
+    [ViewFullItem].[size] AS [size], 
+    [ViewFullItem].[MRP] AS [MRP], 
+    [ViewFullItem].[No_Image] AS [No_Image], 
+    [ViewFullItem].[image] AS [image], 
+    [ViewFullItem].[No_Gold] AS [No_Gold], 
+    [ViewFullItem].[GoldType_ID] AS [GoldType_ID], 
+    [ViewFullItem].[Gold_Rate] AS [Gold_Rate], 
+    [ViewFullItem].[Gold_Wt] AS [Gold_Wt], 
+    [ViewFullItem].[Wstg_Per] AS [Wstg_Per], 
+    [ViewFullItem].[Wstq] AS [Wstq], 
+    [ViewFullItem].[Total_weight] AS [Total_weight], 
+    [ViewFullItem].[No_Diamond] AS [No_Diamond], 
+    [ViewFullItem].[DimQlty_ID] AS [DimQlty_ID], 
+    [ViewFullItem].[Dim_Crt] AS [Dim_Crt], 
+    [ViewFullItem].[Dim_Pcs] AS [Dim_Pcs], 
+    [ViewFullItem].[Dim_Gm] AS [Dim_Gm], 
+    [ViewFullItem].[Dim_Size] AS [Dim_Size], 
+    [ViewFullItem].[Dim_Rate] AS [Dim_Rate], 
+    [ViewFullItem].[Dim_Amt] AS [Dim_Amt], 
+    [ViewFullItem].[DimSubType_ID] AS [DimSubType_ID], 
+    [ViewFullItem].[Dim_CrtSub] AS [Dim_CrtSub], 
+    [ViewFullItem].[Dim_PcsSub] AS [Dim_PcsSub], 
+    [ViewFullItem].[Dim_GmSub] AS [Dim_GmSub], 
+    [ViewFullItem].[Dim_SizeSub] AS [Dim_SizeSub], 
+    [ViewFullItem].[Dim_RateSub] AS [Dim_RateSub], 
+    [ViewFullItem].[Dim_AmtSub] AS [Dim_AmtSub], 
+    [ViewFullItem].[Total_AmtAll] AS [Total_AmtAll], 
+    [ViewFullItem].[No_Stone] AS [No_Stone], 
+    [ViewFullItem].[StoneQlty_ID] AS [StoneQlty_ID], 
+    [ViewFullItem].[Stone_Gm] AS [Stone_Gm], 
+    [ViewFullItem].[Stone_Pcs] AS [Stone_Pcs], 
+    [ViewFullItem].[Stone_Crt] AS [Stone_Crt], 
+    [ViewFullItem].[Stone_Rate] AS [Stone_Rate], 
+    [ViewFullItem].[Stone_Wt] AS [Stone_Wt], 
+    [ViewFullItem].[Stone_Amt] AS [Stone_Amt], 
+    [ViewFullItem].[total_brand] AS [total_brand]
+    FROM [dbo].[ViewFullItem] AS [ViewFullItem]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DisplayCommonPro_ProdMst" Association="Self.FK_DisplayCommonPro_ProdMst">
+            <End Role="ProdMst" EntitySet="ProdMst" />
+            <End Role="DisplayCommonPro" EntitySet="DisplayCommonPro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JewelTypeMst_ProdMst" Association="Self.FK_JewelTypeMst_ProdMst">
+            <End Role="ProdMst" EntitySet="ProdMst" />
+            <End Role="JewelTypeMst" EntitySet="JewelTypeMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdMst_CatMst" Association="Self.FK_ProdMst_CatMst">
+            <End Role="CatMst" EntitySet="CatMst" />
+            <End Role="ProdMst" EntitySet="ProdMst" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JewelleryShopping_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GoldView">
+          <Key>
+            <PropertyRef Name="No" />
+            <PropertyRef Name="Style_code" />
+            <PropertyRef Name="GoldType_ID" />
+            <PropertyRef Name="Gold_Rate" />
+            <PropertyRef Name="Gold_Wt" />
+            <PropertyRef Name="Wstg_Per" />
+            <PropertyRef Name="Wstq" />
+            <PropertyRef Name="Total_weight" />
+          </Key>
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="Style_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GoldType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Gold_Crt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gold_Rate" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Gold_Wt" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Wstg_Per" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Wstq" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Total_weight" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="PriceOnGram" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Total_Amount" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ViewFullItem">
+          <Key>
+            <PropertyRef Name="Style_Code" />
+            <PropertyRef Name="Pairs" />
+            <PropertyRef Name="Cat_ID" />
+            <PropertyRef Name="Prod_ID" />
+            <PropertyRef Name="JewelleryType_ID" />
+            <PropertyRef Name="Brand_ID" />
+            <PropertyRef Name="Certify_ID" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Prod_Quality" />
+            <PropertyRef Name="Net_Gold" />
+            <PropertyRef Name="Tot_Gross_Wt" />
+            <PropertyRef Name="Stone_Making" />
+            <PropertyRef Name="Gold_Making" />
+            <PropertyRef Name="Other_Making" />
+            <PropertyRef Name="Tot_Making" />
+            <PropertyRef Name="size" />
+            <PropertyRef Name="MRP" />
+            <PropertyRef Name="Img" />
+          </Key>
+          <Property Name="Style_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pairs" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="Cat_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Prod_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="JewelleryType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Brand_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Certify_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Prod_Quality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Net_Gold" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Tot_Gross_Wt" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Stone_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Gold_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Other_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Tot_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="size" Type="Int32" Nullable="false" />
+          <Property Name="MRP" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="No_Image" Type="Int32" />
+          <Property Name="No_Gold" Type="Int32" />
+          <Property Name="GoldType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Gold_Rate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Gold_Wt" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="Wstg_Per" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="Wstq" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="Total_weight" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="No_Diamond" Type="Int32" />
+          <Property Name="DimQlty_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DimSubType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Dim_Crt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_Pcs" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_Gm" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_Size" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_Rate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_Amt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="No_Stone" Type="Int32" />
+          <Property Name="StoneQlty_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Stone_Gm" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Stone_Pcs" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Stone_Crt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Stone_Rate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Stone_Wt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Stone_Amt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="total_brand" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Img" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dim_CrtSub" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_PcsSub" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_GmSub" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_SizeSub" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_RateSub" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dim_AmtSub" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Total_AmtAll" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="JewelleryShopping_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GoldViews" EntityType="Self.GoldView" />
+          <EntitySet Name="ViewFullItems" EntityType="Self.ViewFullItem" />
+          <EntitySet Name="DisplayCommonProes" EntityType="JewelleryShopping_dbModel.DisplayCommonPro" />
+          <EntitySet Name="AdminLoginMsts" EntityType="JewelleryShopping_dbModel.AdminLoginMst" />
+          <EntitySet Name="UserRegMsts" EntityType="JewelleryShopping_dbModel.UserRegMst" />
+          <EntitySet Name="CatMsts" EntityType="JewelleryShopping_dbModel.CatMst" />
+          <EntitySet Name="JewelTypeMsts" EntityType="JewelleryShopping_dbModel.JewelTypeMst" />
+          <EntitySet Name="ProdMsts" EntityType="JewelleryShopping_dbModel.ProdMst" />
+          <AssociationSet Name="FK_ProdMst_CatMst" Association="JewelleryShopping_dbModel.FK_ProdMst_CatMst">
+            <End Role="CatMst" EntitySet="CatMsts" />
+            <End Role="ProdMst" EntitySet="ProdMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisplayCommonPro_ProdMst" Association="JewelleryShopping_dbModel.FK_DisplayCommonPro_ProdMst">
+            <End Role="ProdMst" EntitySet="ProdMsts" />
+            <End Role="DisplayCommonPro" EntitySet="DisplayCommonProes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JewelTypeMst_ProdMst" Association="JewelleryShopping_dbModel.FK_JewelTypeMst_ProdMst">
+            <End Role="ProdMst" EntitySet="ProdMsts" />
+            <End Role="JewelTypeMst" EntitySet="JewelTypeMsts" />
+          </AssociationSet>
+          <EntitySet Name="ViewDisplayItems" EntityType="JewelleryShopping_dbModel.ViewDisplayItem" />
+          <EntitySet Name="Images" EntityType="JewelleryShopping_dbModel.Image" />
+        </EntityContainer>
+        <EntityType Name="DisplayCommonPro">
+          <Key>
+            <PropertyRef Name="Name_Pro" />
+          </Key>
+          <Property Name="Name_Pro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Img" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prod_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ProdMst" Relationship="JewelleryShopping_dbModel.FK_DisplayCommonPro_ProdMst" FromRole="DisplayCommonPro" ToRole="ProdMst" />
+        </EntityType>
+        <EntityType Name="AdminLoginMst">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRegMst">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="userFname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userLname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="mobNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="emailID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cdate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CatMst">
+          <Key>
+            <PropertyRef Name="Cat_ID" />
+          </Key>
+          <Property Name="Cat_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Cat_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProdMsts" Relationship="JewelleryShopping_dbModel.FK_ProdMst_CatMst" FromRole="CatMst" ToRole="ProdMst" />
+        </EntityType>
+        <EntityType Name="JewelTypeMst">
+          <Key>
+            <PropertyRef Name="JewelTypeMst1" />
+          </Key>
+          <Property Name="JewelTypeMst1" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Jewellery_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Prod" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ProdMst" Relationship="JewelleryShopping_dbModel.FK_JewelTypeMst_ProdMst" FromRole="JewelTypeMst" ToRole="ProdMst" />
+        </EntityType>
+        <EntityType Name="ProdMst">
+          <Key>
+            <PropertyRef Name="Prod_ID" />
+          </Key>
+          <Property Name="Prod_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Prod_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cat_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CatMst" Relationship="JewelleryShopping_dbModel.FK_ProdMst_CatMst" FromRole="ProdMst" ToRole="CatMst" />
+          <NavigationProperty Name="DisplayCommonProes" Relationship="JewelleryShopping_dbModel.FK_DisplayCommonPro_ProdMst" FromRole="ProdMst" ToRole="DisplayCommonPro" />
+          <NavigationProperty Name="JewelTypeMsts" Relationship="JewelleryShopping_dbModel.FK_JewelTypeMst_ProdMst" FromRole="ProdMst" ToRole="JewelTypeMst" />
+        </EntityType>
+        <Association Name="FK_ProdMst_CatMst">
+          <End Type="JewelleryShopping_dbModel.CatMst" Role="CatMst" Multiplicity="1" />
+          <End Type="JewelleryShopping_dbModel.ProdMst" Role="ProdMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMst">
+              <PropertyRef Name="Cat_ID" />
+            </Principal>
+            <Dependent Role="ProdMst">
+              <PropertyRef Name="Cat_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisplayCommonPro_ProdMst">
+          <End Type="JewelleryShopping_dbModel.ProdMst" Role="ProdMst" Multiplicity="1" />
+          <End Type="JewelleryShopping_dbModel.DisplayCommonPro" Role="DisplayCommonPro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdMst">
+              <PropertyRef Name="Prod_ID" />
+            </Principal>
+            <Dependent Role="DisplayCommonPro">
+              <PropertyRef Name="Prod_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JewelTypeMst_ProdMst">
+          <End Type="JewelleryShopping_dbModel.ProdMst" Role="ProdMst" Multiplicity="1" />
+          <End Type="JewelleryShopping_dbModel.JewelTypeMst" Role="JewelTypeMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdMst">
+              <PropertyRef Name="Prod_ID" />
+            </Principal>
+            <Dependent Role="JewelTypeMst">
+              <PropertyRef Name="ID_Prod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ViewDisplayItem">
+          <Key>
+            <PropertyRef Name="Style_Code" />
+            <PropertyRef Name="Img" />
+            <PropertyRef Name="Tot_Gross_Wt" />
+            <PropertyRef Name="Prod_ID" />
+            <PropertyRef Name="Brand_ID" />
+            <PropertyRef Name="Cat_ID" />
+            <PropertyRef Name="JewelleryType_ID" />
+          </Key>
+          <Property Name="Style_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Img" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total_weight" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tot_Gross_Wt" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+          <Property Name="GoldType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Gold_Crt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prod_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Prod_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Brand_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Cat_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Cat_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Jewellery_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JewelleryType_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Brand_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="total_brand" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Style_Colde" />
+            <PropertyRef Name="image1" />
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="Style_Colde" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="No" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JewelleryShopping_dbModelStoreContainer" CdmEntityContainer="JewelleryShopping_dbEntities">
+          <EntitySetMapping Name="GoldViews">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.GoldView">
+              <MappingFragment StoreEntitySet="GoldView">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="Style_code" ColumnName="Style_code" />
+                <ScalarProperty Name="GoldType_ID" ColumnName="GoldType_ID" />
+                <ScalarProperty Name="Gold_Crt" ColumnName="Gold_Crt" />
+                <ScalarProperty Name="Gold_Rate" ColumnName="Gold_Rate" />
+                <ScalarProperty Name="Gold_Wt" ColumnName="Gold_Wt" />
+                <ScalarProperty Name="Wstg_Per" ColumnName="Wstg_Per" />
+                <ScalarProperty Name="Wstq" ColumnName="Wstq" />
+                <ScalarProperty Name="Total_weight" ColumnName="Total_weight" />
+                <ScalarProperty Name="PriceOnGram" ColumnName="PriceOnGram" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewFullItems">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.ViewFullItem">
+              <MappingFragment StoreEntitySet="ViewFullItem">
+                <ScalarProperty Name="Total_AmtAll" ColumnName="Total_AmtAll" />
+                <ScalarProperty Name="Dim_AmtSub" ColumnName="Dim_AmtSub" />
+                <ScalarProperty Name="Dim_RateSub" ColumnName="Dim_RateSub" />
+                <ScalarProperty Name="Dim_SizeSub" ColumnName="Dim_SizeSub" />
+                <ScalarProperty Name="Dim_GmSub" ColumnName="Dim_GmSub" />
+                <ScalarProperty Name="Dim_PcsSub" ColumnName="Dim_PcsSub" />
+                <ScalarProperty Name="Dim_CrtSub" ColumnName="Dim_CrtSub" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Pairs" ColumnName="Pairs" />
+                <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+                <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
+                <ScalarProperty Name="JewelleryType_ID" ColumnName="JewelleryType_ID" />
+                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+                <ScalarProperty Name="Certify_ID" ColumnName="Certify_ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Prod_Quality" ColumnName="Prod_Quality" />
+                <ScalarProperty Name="Net_Gold" ColumnName="Net_Gold" />
+                <ScalarProperty Name="Tot_Gross_Wt" ColumnName="Tot_Gross_Wt" />
+                <ScalarProperty Name="Stone_Making" ColumnName="Stone_Making" />
+                <ScalarProperty Name="Gold_Making" ColumnName="Gold_Making" />
+                <ScalarProperty Name="Other_Making" ColumnName="Other_Making" />
+                <ScalarProperty Name="Tot_Making" ColumnName="Tot_Making" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="No_Image" ColumnName="No_Image" />
+                <ScalarProperty Name="No_Gold" ColumnName="No_Gold" />
+                <ScalarProperty Name="GoldType_ID" ColumnName="GoldType_ID" />
+                <ScalarProperty Name="Gold_Rate" ColumnName="Gold_Rate" />
+                <ScalarProperty Name="Gold_Wt" ColumnName="Gold_Wt" />
+                <ScalarProperty Name="Wstg_Per" ColumnName="Wstg_Per" />
+                <ScalarProperty Name="Wstq" ColumnName="Wstq" />
+                <ScalarProperty Name="Total_weight" ColumnName="Total_weight" />
+                <ScalarProperty Name="No_Diamond" ColumnName="No_Diamond" />
+                <ScalarProperty Name="DimQlty_ID" ColumnName="DimQlty_ID" />
+                <ScalarProperty Name="DimSubType_ID" ColumnName="DimSubType_ID" />
+                <ScalarProperty Name="Dim_Crt" ColumnName="Dim_Crt" />
+                <ScalarProperty Name="Dim_Pcs" ColumnName="Dim_Pcs" />
+                <ScalarProperty Name="Dim_Gm" ColumnName="Dim_Gm" />
+                <ScalarProperty Name="Dim_Size" ColumnName="Dim_Size" />
+                <ScalarProperty Name="Dim_Rate" ColumnName="Dim_Rate" />
+                <ScalarProperty Name="Dim_Amt" ColumnName="Dim_Amt" />
+                <ScalarProperty Name="No_Stone" ColumnName="No_Stone" />
+                <ScalarProperty Name="StoneQlty_ID" ColumnName="StoneQlty_ID" />
+                <ScalarProperty Name="Stone_Gm" ColumnName="Stone_Gm" />
+                <ScalarProperty Name="Stone_Pcs" ColumnName="Stone_Pcs" />
+                <ScalarProperty Name="Stone_Crt" ColumnName="Stone_Crt" />
+                <ScalarProperty Name="Stone_Rate" ColumnName="Stone_Rate" />
+                <ScalarProperty Name="Stone_Wt" ColumnName="Stone_Wt" />
+                <ScalarProperty Name="Stone_Amt" ColumnName="Stone_Amt" />
+                <ScalarProperty Name="total_brand" ColumnName="total_brand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisplayCommonProes">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.DisplayCommonPro">
+              <MappingFragment StoreEntitySet="DisplayCommonPro">
+                <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Name_Pro" ColumnName="Name_Pro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminLoginMsts">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.AdminLoginMst">
+              <MappingFragment StoreEntitySet="AdminLoginMst">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRegMsts">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.UserRegMst">
+              <MappingFragment StoreEntitySet="UserRegMst">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="cdate" ColumnName="cdate" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="emailID" ColumnName="emailID" />
+                <ScalarProperty Name="mobNo" ColumnName="mobNo" />
+                <ScalarProperty Name="userLname" ColumnName="userLname" />
+                <ScalarProperty Name="userFname" ColumnName="userFname" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatMsts">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.CatMst">
+              <MappingFragment StoreEntitySet="CatMst">
+                <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+                <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JewelTypeMsts">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.JewelTypeMst">
+              <MappingFragment StoreEntitySet="JewelTypeMst">
+                <ScalarProperty Name="ID_Prod" ColumnName="ID_Prod" />
+                <ScalarProperty Name="Jewellery_Type" ColumnName="Jewellery_Type" />
+                <ScalarProperty Name="JewelTypeMst1" ColumnName="JewelTypeMst" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdMsts">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.ProdMst">
+              <MappingFragment StoreEntitySet="ProdMst">
+                <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+                <ScalarProperty Name="Prod_Type" ColumnName="Prod_Type" />
+                <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewDisplayItems">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.ViewDisplayItem">
+              <MappingFragment StoreEntitySet="ViewDisplayItem">
+                <ScalarProperty Name="total_brand" ColumnName="total_brand" />
+                <ScalarProperty Name="Brand_Type" ColumnName="Brand_Type" />
+                <ScalarProperty Name="JewelleryType_ID" ColumnName="JewelleryType_ID" />
+                <ScalarProperty Name="Jewellery_Type" ColumnName="Jewellery_Type" />
+                <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+                <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+                <ScalarProperty Name="Prod_Type" ColumnName="Prod_Type" />
+                <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
+                <ScalarProperty Name="Gold_Crt" ColumnName="Gold_Crt" />
+                <ScalarProperty Name="GoldType_ID" ColumnName="GoldType_ID" />
+                <ScalarProperty Name="Tot_Gross_Wt" ColumnName="Tot_Gross_Wt" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Total_weight" ColumnName="Total_weight" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="JewelleryShopping_dbModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="image1" ColumnName="image" />
+                <ScalarProperty Name="Style_Colde" ColumnName="Style_Colde" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
