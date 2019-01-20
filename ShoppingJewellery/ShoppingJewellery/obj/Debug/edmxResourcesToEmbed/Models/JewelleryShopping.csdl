@@ -1,105 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="JewelleryShopping_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="GoldView">
-    <Key>
-      <PropertyRef Name="No" />
-      <PropertyRef Name="Style_code" />
-      <PropertyRef Name="GoldType_ID" />
-      <PropertyRef Name="Gold_Rate" />
-      <PropertyRef Name="Gold_Wt" />
-      <PropertyRef Name="Wstg_Per" />
-      <PropertyRef Name="Wstq" />
-      <PropertyRef Name="Total_weight" />
-    </Key>
-    <Property Name="No" Type="Int32" Nullable="false" />
-    <Property Name="Style_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="GoldType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Gold_Crt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Gold_Rate" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="Gold_Wt" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="Wstg_Per" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="Wstq" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="Total_weight" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="PriceOnGram" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Total_Amount" Type="Decimal" Precision="10" Scale="2" />
-  </EntityType>
-  <EntityType Name="ViewFullItem">
-    <Key>
-      <PropertyRef Name="Style_Code" />
-      <PropertyRef Name="Pairs" />
-      <PropertyRef Name="Cat_ID" />
-      <PropertyRef Name="Prod_ID" />
-      <PropertyRef Name="JewelleryType_ID" />
-      <PropertyRef Name="Brand_ID" />
-      <PropertyRef Name="Certify_ID" />
-      <PropertyRef Name="Quantity" />
-      <PropertyRef Name="Prod_Quality" />
-      <PropertyRef Name="Net_Gold" />
-      <PropertyRef Name="Tot_Gross_Wt" />
-      <PropertyRef Name="Stone_Making" />
-      <PropertyRef Name="Gold_Making" />
-      <PropertyRef Name="Other_Making" />
-      <PropertyRef Name="Tot_Making" />
-      <PropertyRef Name="size" />
-      <PropertyRef Name="MRP" />
-      <PropertyRef Name="Img" />
-    </Key>
-    <Property Name="Style_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Pairs" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
-    <Property Name="Cat_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Prod_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="JewelleryType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Brand_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Certify_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Prod_Quality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Net_Gold" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="Tot_Gross_Wt" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="Stone_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="Gold_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="Other_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="Tot_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="size" Type="Int32" Nullable="false" />
-    <Property Name="MRP" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="No_Image" Type="Int32" />
-    <Property Name="No_Gold" Type="Int32" />
-    <Property Name="GoldType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Gold_Rate" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Gold_Wt" Type="Decimal" Precision="10" Scale="3" />
-    <Property Name="Wstg_Per" Type="Decimal" Precision="10" Scale="3" />
-    <Property Name="Wstq" Type="Decimal" Precision="10" Scale="3" />
-    <Property Name="Total_weight" Type="Decimal" Precision="10" Scale="3" />
-    <Property Name="No_Diamond" Type="Int32" />
-    <Property Name="DimQlty_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="DimSubType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Dim_Crt" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_Pcs" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_Gm" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_Size" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_Rate" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_Amt" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="No_Stone" Type="Int32" />
-    <Property Name="StoneQlty_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Stone_Gm" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Stone_Pcs" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Stone_Crt" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Stone_Rate" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Stone_Wt" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Stone_Amt" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="total_brand" Type="Decimal" Precision="38" Scale="2" />
-    <Property Name="Img" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Dim_CrtSub" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_PcsSub" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_GmSub" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_SizeSub" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_RateSub" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Dim_AmtSub" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Total_AmtAll" Type="Decimal" Precision="10" Scale="2" />
-  </EntityType>
   <EntityContainer Name="JewelleryShopping_dbEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="GoldViews" EntityType="Self.GoldView" />
-    <EntitySet Name="ViewFullItems" EntityType="Self.ViewFullItem" />
     <EntitySet Name="DisplayCommonProes" EntityType="JewelleryShopping_dbModel.DisplayCommonPro" />
     <EntitySet Name="AdminLoginMsts" EntityType="JewelleryShopping_dbModel.AdminLoginMst" />
     <EntitySet Name="UserRegMsts" EntityType="JewelleryShopping_dbModel.UserRegMst" />
@@ -120,6 +21,10 @@
     </AssociationSet>
     <EntitySet Name="ViewDisplayItems" EntityType="JewelleryShopping_dbModel.ViewDisplayItem" />
     <EntitySet Name="Images" EntityType="JewelleryShopping_dbModel.Image" />
+    <EntitySet Name="ViewFullItems" EntityType="JewelleryShopping_dbModel.ViewFullItem" />
+    <EntitySet Name="DiamonViews" EntityType="JewelleryShopping_dbModel.DiamonView" />
+    <EntitySet Name="StoneViews" EntityType="JewelleryShopping_dbModel.StoneView" />
+    <EntitySet Name="GoldViews" EntityType="JewelleryShopping_dbModel.GoldView" />
   </EntityContainer>
   <EntityType Name="DisplayCommonPro">
     <Key>
@@ -251,5 +156,168 @@
     <Property Name="Style_Colde" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="image1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="No" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ViewFullItem">
+    <Key>
+      <PropertyRef Name="Style_Code" />
+      <PropertyRef Name="Img" />
+      <PropertyRef Name="Pairs" />
+      <PropertyRef Name="Cat_ID" />
+      <PropertyRef Name="Prod_ID" />
+      <PropertyRef Name="JewelleryType_ID" />
+      <PropertyRef Name="Brand_ID" />
+      <PropertyRef Name="Certify_ID" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="Prod_Quality" />
+      <PropertyRef Name="Net_Gold" />
+      <PropertyRef Name="Tot_Gross_Wt" />
+      <PropertyRef Name="Stone_Making" />
+      <PropertyRef Name="Gold_Making" />
+      <PropertyRef Name="Other_Making" />
+      <PropertyRef Name="Tot_Making" />
+      <PropertyRef Name="size" />
+      <PropertyRef Name="MRP" />
+    </Key>
+    <Property Name="Style_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Img" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pairs" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="Cat_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Prod_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="JewelleryType_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Brand_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Certify_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Prod_Quality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Net_Gold" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="Tot_Gross_Wt" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="Stone_Making" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Gold_Making" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Other_Making" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Tot_Making" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="size" Type="Int32" Nullable="false" />
+    <Property Name="MRP" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Cat_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Prod_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Brand_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Jewellery_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Certify_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="No_Gold" Type="Int32" />
+    <Property Name="GoldType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Gold_Rate" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Gold_Wt" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="Wstg_Per" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="Wstq" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="Total_weight" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="No_Diamond" Type="Int32" />
+    <Property Name="DimQlty_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Dim_Crt" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_Pcs" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_Gm" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_Size" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_Rate" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_Amt" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DimSubType_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Dim_CrtSub" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_PcsSub" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_GmSub" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_SizeSub" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_RateSub" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Dim_AmtSub" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Total_AmtAll" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="No_Stone" Type="Int32" />
+    <Property Name="StoneQlty_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Stone_Gm" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Stone_Pcs" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Stone_Crt" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Stone_Rate" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Stone_Wt" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Stone_Amt" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="total_brand" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="DiamonView">
+    <Key>
+      <PropertyRef Name="No" />
+      <PropertyRef Name="Style_Code" />
+      <PropertyRef Name="DimQlty_ID" />
+      <PropertyRef Name="Dim_Crt" />
+      <PropertyRef Name="Dim_Pcs" />
+      <PropertyRef Name="Dim_Gm" />
+      <PropertyRef Name="Dim_Size" />
+      <PropertyRef Name="Dim_Rate" />
+      <PropertyRef Name="Dim_Amt" />
+      <PropertyRef Name="DimSubType_ID" />
+      <PropertyRef Name="Dim_CrtSub" />
+      <PropertyRef Name="Dim_PcsSub" />
+      <PropertyRef Name="Dim_GmSub" />
+      <PropertyRef Name="Dim_SizeSub" />
+      <PropertyRef Name="Dim_RateSub" />
+      <PropertyRef Name="Dim_AmtSub" />
+      <PropertyRef Name="Total_AmtAll" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Style_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DimQlty_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MainType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dim_Crt" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_Pcs" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_Gm" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_Size" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_Rate" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_Amt" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="DimSubType_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SubTyle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dim_CrtSub" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_PcsSub" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_GmSub" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_SizeSub" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_RateSub" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Dim_AmtSub" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Total_AmtAll" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="StoneView">
+    <Key>
+      <PropertyRef Name="No" />
+      <PropertyRef Name="Style_Code" />
+      <PropertyRef Name="StoneQlty_ID" />
+      <PropertyRef Name="Stone_Gm" />
+      <PropertyRef Name="Stone_Pcs" />
+      <PropertyRef Name="Stone_Crt" />
+      <PropertyRef Name="Stone_Rate" />
+      <PropertyRef Name="Stone_Amt" />
+      <PropertyRef Name="Stone_Wt" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Style_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StoneQlty_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="StoneQlty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Stone_Gm" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Stone_Pcs" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Stone_Crt" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Stone_Rate" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Stone_Amt" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Stone_Wt" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="GoldView">
+    <Key>
+      <PropertyRef Name="No" />
+      <PropertyRef Name="Style_code" />
+      <PropertyRef Name="GoldType_ID" />
+      <PropertyRef Name="Gold_Rate" />
+      <PropertyRef Name="Gold_Wt" />
+      <PropertyRef Name="Wstg_Per" />
+      <PropertyRef Name="Wstq" />
+      <PropertyRef Name="Total_weight" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Style_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GoldType_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Gold_Crt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gold_Rate" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Gold_Wt" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="Wstg_Per" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="Wstq" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="Total_weight" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="PriceOnGram" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Total_Amount" Type="Decimal" Precision="10" Scale="2" />
   </EntityType>
 </Schema>
